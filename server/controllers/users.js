@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from "../models/User.js";
 
 // Read
 export const getUser = async(req, res)=>{
@@ -43,11 +43,32 @@ export const getUserFriends = async(req, res)=>{
 export const addRemoveFriends = async(req, res)=>{
     try {
         const {id, friendId} = req.params;
-        const user = await User.findByIdAndUpdate(id, {$push : {friends : friendId}}, {new : true});
-        if(!user){
+        const user = await User.findById(id);
+        const friend = await User.findById(friendId);
+        if(!user ||!friend){
             return res.status(404).json({message : "User not found"})
         }
-        res.status(200).json(user);
+        if(user.friends.includes(friendId)){
+            user.friends = user.friends.filter(id=> id!== friendId);
+        } else {
+            user.friends.push(friendId);
+        }
+        await user.save();
+        await friend.save();
+
+        const formattedFriends = friends.map(
+            ({_id, firstName, lastName, picturePath, occupation, location})=>{
+                return {
+                    _id,
+                    firstName,
+                    lastName,
+                    picturePath,
+                    occupation,
+                    location
+                }
+            }
+        );
+        res.status(200).json(formattedFriends);
     } catch (error) {
         res.status(404).json({message : error.message})
     }

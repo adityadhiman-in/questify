@@ -66,7 +66,6 @@ app.use("posts", postRoutes);
 
 app.listen(port, ()=>{
     console.log(`Server running on port http://localhost:${port}`);
-
-    User.insertMany(users);
-    User.insertMany(posts);
+    // User.insertMany(users);
+    // Post.insertMany(posts);
 });

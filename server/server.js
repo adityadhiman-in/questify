@@ -17,9 +17,6 @@ import userRoutes from './routes/users.js';
 import { verifyToken } from './middlewares/auth.js';
 import {createPost} from "./controllers/posts.js";
 import postRoutes from "./routes/posts.js";
-import Post from './models/Post.js';
-import User from './models/User.js';
-import {users, posts} from './dummyData/index.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -66,6 +63,4 @@ app.use("posts", postRoutes);
 
 app.listen(port, ()=>{
     console.log(`Server running on port http://localhost:${port}`);
-    // User.insertMany(users);
-    // Post.insertMany(posts);
 });

@@ -3,7 +3,7 @@ import './Navbar.css'
 
 function Navbar(){
     return(
-        <div>
+        <div className="mainHeader">
             <div className="logo">
             <a href="/"><h1>Questify</h1></a>
             </div>
@@ -14,7 +14,7 @@ function Navbar(){
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
-            <div className="search-bar">
+            <div className="searchBar">
                 <input type="text" placeholder="Search..."/>
                 <button>Search</button>
                 </div>

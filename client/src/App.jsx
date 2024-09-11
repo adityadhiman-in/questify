@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Components/Home/Home";
 
 function App(){
   return{
@@ -7,8 +8,7 @@ function App(){
       return(
         <div>
           <Navbar />
-          <h1>Questify</h1>
-          <p>Welcome to Questify!</p>
+          <Home />
         </div>
       );
     }

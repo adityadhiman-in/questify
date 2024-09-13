@@ -10,3 +10,16 @@ html,body,#root,.app{
   height: 100%;
   width: 100%;
 }
+
+:root{
+  --primaryColor: #16423C;
+    --secondaryColor: #6A9C89;
+    --tertiaryColor: #C4DAD2;
+    --quatenaryColor: #E9EFEC;
+    --whiteColor: #fff;
+    --blackColor: #000;
+    --bigFont: 5rem;
+    --medFont: 3rem;
+    --smallFont: 1.25rem;
+    --navFont: 1rem;
+}

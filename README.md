@@ -14,11 +14,11 @@
 
 ## Technology Stack
 
-Questify is built using the **MERN** stack:
+Questify is built using the:
 
 - **MongoDB**: For storing user data and item posts.
 - **Express.js**: As the backend framework.
-- **React**: For building a dynamic and responsive frontend.
+- **Ejs**: For building a dynamic and responsive frontend.
 - **Node.js**: Server-side JavaScript runtime.
 
 ## Project Setup

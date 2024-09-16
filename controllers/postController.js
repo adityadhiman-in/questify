@@ -18,7 +18,7 @@ const upload = multer({ storage: storage });
 const createPost = async (req, res) => {
   try {
     const { title, description, location, contact } = req.body;
-    const image = req.file.path; 
+    const image = req.file ? `/uploads/${req.file.filename}` : '';
 
     const newPost = new Post({
       title,

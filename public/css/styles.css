@@ -339,3 +339,13 @@ footer p{
     }
   }
   
+
+  /* Explore */
+
+  .card-img-top{
+   width: 50%;
+   height: 25%;
+  }
+  .card{
+    margin-bottom: 5rem;
+  }

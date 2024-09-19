@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import flash from 'connect-flash';
-import passport from './config/passport.js'; // Correctly import Passport setup
+import passport from './config/passport.js'; 
 import methodOverride from 'method-override';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -26,7 +26,7 @@ connectDb();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));

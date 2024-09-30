@@ -58,7 +58,7 @@ router.post('/signup', async (req, res) => {
 // @route   GET /users/profile
 // Profile page, protected route
 router.get('/profile', ensureAuthenticated, (req, res) => {
-  res.render('profile', { user: req.user }); // Pass user data to the profile view
+  res.render('profile', { posts, user: req.user }); // Pass user data to the profile view
 });
 
 // @route   GET /users/logout

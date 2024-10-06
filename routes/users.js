@@ -57,9 +57,16 @@ router.post('/signup', async (req, res) => {
 
 // @route   GET /users/profile
 // Profile page, protected route
-router.get('/profile', ensureAuthenticated, (req, res) => {
-  res.render('profile', { posts, user: req.user }); // Pass user data to the profile view
+router.get('/profile', ensureAuthenticated, async (req, res) => {
+  try {
+    const posts = await Post.find({ user: req.user.id }).sort({ date: -1 }); // Find posts by the logged-in user
+    res.render('profile', { posts, user: req.user }); // Pass posts and user data to the profile view
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
 });
+
 
 // @route   GET /users/logout
 router.get('/logout', (req, res) => {
@@ -119,13 +126,41 @@ router.get('/about', (req, res) => {
 
 // @route   GET /explore
 // @desc    Display all posts in grid layout
-router.get('/explore', async (req, res) => {
+router.get('/explore', ensureAuthenticated, async (req, res) => {
+
   try {
     const posts = await Post.find().sort({ date: -1 }); // Fetch all posts
-    res.render('explore', { posts }); // Pass posts to the explore view
+    res.render('explore', { posts, user: req.user }); // Pass posts to the explore view
   } catch (error) {
     console.error(error);
     res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST /posts/:id/delete
+// @desc    Delete a post
+router.post('/posts/:id/delete', ensureAuthenticated, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      req.flash('error_msg', 'Post not found');
+      return res.redirect('/users/profile');
+    }
+
+    // Ensure the post belongs to the logged-in user
+    if (post.user.toString() !== req.user.id) {
+      req.flash('error_msg', 'You are not authorized to delete this post');
+      return res.redirect('/users/profile');
+    }
+
+    await post.remove();
+    req.flash('success_msg', 'Post deleted successfully');
+    res.redirect('/users/profile');
+  } catch (error) {
+    console.error(error);
+    req.flash('error_msg', 'Something went wrong, please try again');
+    res.redirect('/users/profile');
   }
 });
  

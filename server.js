@@ -59,7 +59,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware to ensure user is authenticated
+// Middleware to ensure user is authenticated 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();

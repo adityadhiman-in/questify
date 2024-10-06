@@ -17,6 +17,24 @@
       </div>
     </div>
   </section>
+  <!-- 
+  <section class="user-posts-section">
+    <h3>Your Posts</h3>
+    <% console.log(posts); %>
+    <div class="posts-container">
+      <% if(posts.length > 0) { %> <% posts.forEach(post => { %>
+      <div class="post-card">
+        <h4><%= post.title %></h4>
+        <p><%= post.body %></p>
+        <form action="/posts/<%= post._id %>/delete" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+      <% }) %> <% } else { %>
+      <p>You haven't created any posts yet.</p>
+      <% } %>
+    </div>
+  </section> -->
 </main>
 
 <%- include("partials/footer.ejs") %>

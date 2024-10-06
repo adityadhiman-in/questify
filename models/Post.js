@@ -22,8 +22,8 @@ const PostSchema = new mongoose.Schema({
     default: Date.now,
   },
   contact: {
-    type: String, // Contact information field
-    required: true, // Make this field required
+    type: String, 
+    required: true, 
   },
 });
 

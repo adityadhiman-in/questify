@@ -2,30 +2,36 @@
 
 <div class="container my-5">
   <h1 class="text-center">Explore Lost & Found Items</h1>
-  <div class="row">
-    <% if (posts && posts.length) { %> <% posts.forEach(post => { %>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <h3>@<%= user.username %></h3>
-        <img
-          src="<%= post.image %>"
-          class="card-img-top"
-          alt="Image for <%= post.title %>"
-        />
-        <div class="card-body">
-          <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text"><%= post.description %></p>
-          <p class="card-text">
-            <strong>Location:</strong> <%= post.location %>
-          </p>
-          <p class="card-text"><strong>Contact:</strong> <%= post.contact %></p>
-          <a href="/posts/<%= post._id %>" class="btn btn-primary">View More</a>
+  <div class="itemsContainer">
+    <div class="row">
+      <% if (posts && posts.length) { %> <% posts.forEach(post => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <h3>@<%= user.username %></h3>
+          <img
+            src="<%= post.image %>"
+            class="card-img-top"
+            alt="Image for <%= post.title %>"
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"><%= post.description %></p>
+            <p class="card-text">
+              <strong>Location:</strong> <%= post.location %>
+            </p>
+            <p class="card-text">
+              <strong>Contact:</strong> <%= post.contact %>
+            </p>
+            <a href="/posts/<%= post._id %>" class="btn btn-primary"
+              >View More</a
+            >
+          </div>
         </div>
       </div>
+      <% }) %> <% } else { %>
+      <p class="text-center">No posts available</p>
+      <% } %>
     </div>
-    <% }) %> <% } else { %>
-    <p class="text-center">No posts available</p>
-    <% } %>
   </div>
 </div>
 

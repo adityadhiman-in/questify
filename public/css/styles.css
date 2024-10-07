@@ -18,7 +18,7 @@ body, html {
 }
 
 :root {
-  --primaryColor:#3B0944;
+  --primaryColor: #3B0944;
   --secondaryColor: #5F1854;
   --tertiaryColor: #A12559;
   --quatenaryColor: #F1BBD5;
@@ -29,13 +29,15 @@ body, html {
   --smallFont: 1rem;
   --navFont: 1rem;
 }
-.flexBetween{
+
+.flexBetween {
   padding-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 /* Header */
 header {
   margin: 2rem;
@@ -51,13 +53,12 @@ header a h1 {
   color: var(--whiteColor);
 }
 
-
 nav ul, .navII {
   display: flex;
   gap: 2rem;
 }
 
-nav ul  li a, .navII li a {
+nav ul li a, .navII li a {
   color: var(--whiteColor);
 }
 
@@ -254,107 +255,118 @@ footer {
   background-color: var(--primaryColor);
   text-align: center;
 }
-footer p{
+
+footer p {
   color: var(--whiteColor);
 }
 
-
 /* about */
+.brand-name {
+  color: var(--primaryColor); 
+}
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  animation: fadeIn 2s ease-in-out;
+}
 
-  .brand-name {
-    color: var(--primaryColor); 
-  }
+.mission-section {
+  margin-top: 2rem;
+  background-color: #f0d0df;
+  padding: 2rem;
+  border-radius: 8px;
+  animation: fadeInUp 2s ease-in-out;
+}
 
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-    animation: fadeIn 2s ease-in-out;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
 
-  .mission-section {
-    margin-top: 2rem;
-    background-color: #f0d0df;
-    padding: 2rem;
-    border-radius: 8px;
-    animation: fadeInUp 2s ease-in-out;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+/* SinglePost */
+.container {
+  max-width: 800px;
+}
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.card {
+  border-radius: 0.5rem;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
 
-  /* SinglePost */
-  .container {
-    max-width: 800px;
-  }
-  
-  .card {
-    border-radius: 0.5rem;
-    border: 1px solid #e0e0e0;
-    overflow: hidden;
-  }
-  
-  .card-img-top {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 400px;
-  }
-  .card h3{
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--primaryColor);
-  }
-  
-  .card {
-    padding: 1.5rem;
-  }
-  
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.card h3 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--primaryColor);
+}
+
+.card {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+/* Items Container */
+.itemsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
   .card-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
-  
-  .card-text {
-    margin-bottom: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .card-title {
-      font-size: 1.5rem;
-    }
-    
-    .card {
-      padding: 1rem;
-    }
-  }
-  
 
-  /* Explore */
+  .card {
+    padding: 1rem;
+  }
 
-  .card-img-top{
-   width: 50%;
-   height: 25%;
+  .itemsContainer {
+    grid-template-columns: 1fr;
   }
-  .card{
-    text-align: left;
-    margin-bottom: 2.5rem;
-  }
- 
+}
+
+/* Explore */
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 200px;
+}
+
+.card {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}

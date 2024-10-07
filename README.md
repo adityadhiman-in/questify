@@ -21,6 +21,10 @@ Questify is built using the:
 - **Ejs**: For building a dynamic and responsive frontend.
 - **Node.js**: Server-side JavaScript runtime.
 
+## Future Updates Coming
+
+Upcomig updates in future : Delete posts, Reward System for Users, Ads listings, Promote or Boost Your Posts and etc.
+
 ## Project Setup
 
 1. Clone the repository:

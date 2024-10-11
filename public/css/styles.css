@@ -370,3 +370,23 @@ footer p {
   text-align: left;
   margin-bottom: 2.5rem;
 }
+
+
+
+/* logged in header css */
+
+.mainFooter{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: .25rem;
+}
+.mainFooter .footerItem{
+  background: var(--whiteColor);
+  padding: .5rem;
+  border-radius: .5rem;
+  border-radius: 50%;
+}
+.footerItem i{
+  font-size: 1.75rem;
+}

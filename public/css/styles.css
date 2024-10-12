@@ -375,11 +375,20 @@ footer p {
 
 /* logged in header css */
 
+.loggedInFooter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: var(--whiteColor);
+  padding-top: 3.5rem;
+}
 .mainFooter{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: .25rem;
+  background: var(--primaryColor);
+  padding: 1rem;
 }
 .mainFooter .footerItem{
   background: var(--whiteColor);

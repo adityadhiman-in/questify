@@ -17,29 +17,41 @@
           <h1>Questify</h1>
         </a>
       </div>
-      <nav>
+      <nav class="nav">
         <ul>
           <li><a href="/">Home</a></li>
-          <% if(loggedIn) {%>
+          <% if(loggedIn) { %>
           <li><a href="/users/explore">Explore</a></li>
           <% } %>
-
           <li><a href="/users/about">About</a></li>
         </ul>
       </nav>
-      <div class="navII">
-        <% if (loggedIn) { %>
-        <li><a href="/users/profile">Profile</a></li>
-        <li><a href="/users/logout">Logout</a></li>
-        <% } else { %>
-        <li><a href="/users/login">Login</a></li>
-        <li><a href="/users/signup">Sign Up</a></li>
-        <% } %>
-      </div>
+      <nav class="navII">
+        <ul>
+          <% if (loggedIn) { %>
+          <li><a href="/users/profile">Profile</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+          <% } else { %>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/signup">Sign Up</a></li>
+          <% } %>
+        </ul>
+      </nav>
       <div class="menuIcons">
         <i class="ri-menu-2-line"></i>
         <!-- <i class="ri-close-fill"></i> -->
       </div>
     </header>
+
+    <script>
+      const nav = document.querySelector(".nav");
+      const navII = document.querySelector(".navII");
+      const menuIcon = document.querySelector(".ri-menu-2-line");
+
+      menuIcon.addEventListener("click", () => {
+        nav.classList.toggle("show");
+        navII.classList.toggle("show");
+      });
+    </script>
   </body>
 </html>

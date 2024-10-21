@@ -276,6 +276,9 @@ footer p {
 }
 
 /* about */
+.aboutContainer{
+  margin: 2rem;
+}
 .brand-name {
   color: var(--primaryColor);
 }

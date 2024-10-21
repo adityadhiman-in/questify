@@ -11,7 +11,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   background-color: var(--quatenaryColor);
@@ -53,12 +54,14 @@ header a h1 {
   color: var(--whiteColor);
 }
 
-nav ul, .navII {
+nav ul,
+.navII {
   display: flex;
   gap: 2rem;
 }
 
-nav ul li a, .navII li a {
+nav ul li a,
+.navII li a {
   color: var(--whiteColor);
 }
 
@@ -71,9 +74,10 @@ nav ul li a, .navII li a {
   padding: 2px;
 }
 
-h2, h1 {
+h2,
+h1 {
   color: var(--primaryColor);
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 /* Forms */
@@ -89,21 +93,25 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-form input, form textarea, form button {
+form input,
+form textarea,
+form button {
   padding: 0.5rem;
   font-size: var(--smallFont);
   border-radius: .3rem;
   border: 1px solid var(--tertiaryColor);
 }
 
-form input[type="submit"], form button {
+form input[type="submit"],
+form button {
   background-color: var(--primaryColor);
   color: var(--whiteColor);
   border: none;
   cursor: pointer;
 }
 
-form input[type="submit"]:hover, form button:hover {
+form input[type="submit"]:hover,
+form button:hover {
   background-color: var(--secondaryColor);
 }
 
@@ -216,14 +224,17 @@ form input[type="submit"]:hover, form button:hover {
   color: var(--primaryColor);
   font-weight: 600;
 }
+.editProfilePage{
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
 
 /* Lost and Found Items */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
-}
+ 
 
 .post {
   background-color: var(--whiteColor);
@@ -266,7 +277,7 @@ footer p {
 
 /* about */
 .brand-name {
-  color: var(--primaryColor); 
+  color: var(--primaryColor);
 }
 
 .img-fluid {
@@ -287,6 +298,7 @@ footer p {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -297,6 +309,7 @@ footer p {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -305,7 +318,7 @@ footer p {
 
 /* SinglePost */
 .container {
-  max-width: 800px;
+  width: 100%;
   padding-bottom: 7rem;
 }
 
@@ -345,8 +358,11 @@ footer p {
 /* Items Container */
 .itemsContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 1.5rem;
+  padding: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -373,14 +389,14 @@ footer p {
 
 .card {
   text-align: left;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 
 
 /* logged in header css */
 
-.loggedInFooter{
+.loggedInFooter {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -388,33 +404,42 @@ footer p {
   color: var(--whiteColor);
   padding-top: 3.5rem;
 }
-.mainFooter{
+
+.mainFooter {
   display: flex;
   align-items: center;
   justify-content: space-around;
   background: var(--primaryColor);
   padding: 1rem;
 }
-.mainFooter .footerItem{
+
+.mainFooter .footerItem {
   background: var(--whiteColor);
   padding: .5rem;
   border-radius: .5rem;
   border-radius: 50%;
 }
-.footerItem i{
+
+.footerItem i {
   font-size: 1.75rem;
 }
-.menuIcons{
+
+.menuIcons {
   display: none;
 }
+
 @media(max-width:800px) {
-  nav, .navII{
+
+  nav,
+  .navII {
     display: none;
   }
-  .menuIcons{
+
+  .menuIcons {
     display: block;
   }
-  .menuIcons i{
+
+  .menuIcons i {
     color: var(--whiteColor);
     font-size: 2rem;
   }

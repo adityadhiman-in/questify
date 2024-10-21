@@ -64,8 +64,11 @@ nav ul li a, .navII li a {
 
 /* Container */
 .container {
-  width: 80%;
-  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
 }
 
 h2, h1 {
@@ -151,6 +154,7 @@ form input[type="submit"]:hover, form button:hover {
   align-items: center;
   min-height: 80vh;
   flex-direction: column;
+  margin: 1rem;
 }
 
 .profile-section {
@@ -399,4 +403,19 @@ footer p {
 }
 .footerItem i{
   font-size: 1.75rem;
+}
+.menuIcons{
+  display: none;
+}
+@media(max-width:800px) {
+  nav, .navII{
+    display: none;
+  }
+  .menuIcons{
+    display: block;
+  }
+  .menuIcons i{
+    color: var(--whiteColor);
+    font-size: 2rem;
+  }
 }

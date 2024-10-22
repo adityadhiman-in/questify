@@ -19,10 +19,10 @@ html {
 }
 
 :root {
-  --primaryColor: #3B0944;
-  --secondaryColor: #5F1854;
-  --tertiaryColor: #A12559;
-  --quatenaryColor: #F1BBD5;
+  --primaryColor: #2A2F4F;
+  --secondaryColor: #917FB3;
+  --tertiaryColor: #E5BEEC;
+  --quatenaryColor: #FDE2F3;
   --whiteColor: #fff;
   --blackColor: #000;
   --bigFont: 5rem;
@@ -216,7 +216,8 @@ form button:hover {
 .btn-danger {
   transition: 0.3s;
   background-color: var(--tertiaryColor);
-  color: #fff;
+  color: var(--primaryColor);
+  font-weight: 600;
 }
 
 .btn-danger:hover {

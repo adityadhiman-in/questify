@@ -1,6 +1,6 @@
 # Questify - Lost and Found
 
-![Preview](image.png)
+![Preview Image](image.png)
 
 **Questify** is a platform designed to help users post and find lost and found items. Whether it's a misplaced wallet or a found set of keys or anything lost. Questify connects users who have lost or found items with those looking to retrieve them.
 

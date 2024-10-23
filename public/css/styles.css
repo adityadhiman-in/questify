@@ -222,7 +222,7 @@ form button:hover {
 
 .btn-danger:hover {
   background-color: var(--quatenaryColor);
-  color: var(--primaryColor);
+  color: var(--blackColor);
   font-weight: 600;
 }
 .editProfilePage{

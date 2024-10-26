@@ -20,12 +20,16 @@ const createPost = async (req, res) => {
     const { title, description, location, contact } = req.body;
     const image = req.file ? `/uploads/${req.file.filename}` : "";
 
+    // const user = req.user ? req.user._id : null;
+    // if (!user) return res.status(401).send("Unauthorized: User not logged in");
+
     const newPost = new Post({
       title,
       description,
       location,
       image,
       contact,
+      // user,
     });
 
     await newPost.save();

@@ -1,51 +1,27 @@
 <%- include("partials/header.ejs") %>
 <div class="flexBetween">
-<div class="homeContainer">
-  <div class="container my-5">
-    <h1 class="text-center">Create a New Post</h1>
-    <form action="/posts" method="POST" enctype="multipart/form-data">
-      <input type="text" name="title" placeholder="Title" required />
-      <textarea name="description" placeholder="Description" required></textarea>
-      <input type="text" name="location" placeholder="Location" required />
-      <input type="file" name="image" accept="image/*" required />
-      <input type="text" name="contact" placeholder="Contact Information" required />
-      <button type="submit">Post</button>
-    </form>
-  </div>
-</div></div>
-<!-- 
-  <div class="row">
-    <% if (posts && posts.length) { %> 
-      <% posts.forEach(post => { %>
-        <div class="col-md-4 post">
-          <h2><%= post.title %></h2>
-          <!-- Ensure image URL is correct and accessible -->
-          <img src="<%= post.image %>" alt="Item Image" />
-          <p><%= post.description %></p>
-          <p>Location: <%= post.location %></p>
-          <button class="btn-primary">Claim</button>
-          <button class="btn-secondary" onclick="sharePost('<%= post._id %>')">Share</button>
-        </div>
-      <% }) %> 
-    <% } else { %>
-      <p>No posts available</p>
-    <% } %>
+  <div class="homeContainer">
+    <div class="container my-5">
+      <h1 class="text-center">Create a New Post</h1>
+      <form action="/posts" method="POST" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required />
+        <textarea
+          name="description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <input type="text" name="location" placeholder="Location" required />
+        <input type="file" name="image" accept="image/*" required />
+        <input
+          type="text"
+          name="contact"
+          placeholder="Contact Information"
+          required
+        />
+        <button type="submit">Post</button>
+      </form>
+    </div>
   </div>
 </div>
-
-<script>
-  function sharePost(postId) {
-    // Ensure navigator.share is supported
-    if (navigator.share) {
-      const shareUrl = `${window.location.origin}/posts/${postId}`;
-      navigator.share({
-        title: "Lost and Found Item",
-        url: shareUrl,
-      }).catch(err => console.error('Error sharing:', err));
-    } else {
-      alert('Share API not supported on this browser.');
-    }
-  }
-</script> -->
 
 <%- include("partials/loggedInFooter.ejs") %>

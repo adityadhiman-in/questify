@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "./User.js";
+// import User from "./User.js";
 
 const PostSchema = new mongoose.Schema({
   title: {
@@ -26,11 +26,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  // user: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "User",
+  //   required: true,
+  // },
 });
 
 const Post = mongoose.model("Post", PostSchema);

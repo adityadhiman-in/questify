@@ -6,6 +6,8 @@
 
 ## Features
 
+![Explore](image-1.png)
+
 - Post lost or found items with details and images.
 - View recent lost and found posts.
 - Like (upvote) posts and add comments.

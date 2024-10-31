@@ -20,7 +20,7 @@ Questify is built using the:
 
 - **MongoDB**: For storing user data and item posts.
 - **Express.js**: As the backend framework.
-- **Ejs**: For building a dynamic and responsive frontend.
+- **Ejs**: For building dynamic and responsive frontend.
 - **Node.js**: Server-side JavaScript runtime.
 
 ## Future Updates Coming

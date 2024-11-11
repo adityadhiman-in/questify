@@ -169,4 +169,19 @@ router.post("/posts/:id/delete", ensureAuthenticated, async (req, res) => {
 router.get("/rewards", ensureAuthenticated, (req, res) => {
   res.render("rewards");
 });
+
+export function ensureAdmin(req, res, next) {
+  if (req.isAuthenticated() && req.user.isAdmin) {
+    return next();
+  }
+  req.flash("error_msg", "Access denied. Admins only.");
+  res.redirect("/"); // Redirect to home page or any other route you choose
+}
+
+// @route   GET /admin
+// @desc    Admin page - accessible only by admin users
+router.get("/admin", ensureAuthenticated, ensureAdmin, (req, res) => {
+  res.render("admin", { user: req.user });
+});
+
 export default router;

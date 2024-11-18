@@ -17,19 +17,19 @@ const upload = multer({ storage: storage });
 // Controller to create a new post
 const createPost = async (req, res) => {
   try {
-    const { title, description, location, contact } = req.body;
+    const { username, title, description, location, contact } = req.body;
     const image = req.file ? `/uploads/${req.file.filename}` : "";
 
     // const user = req.user ? req.user._id : null;
     // if (!user) return res.status(401).send("Unauthorized: User not logged in");
 
     const newPost = new Post({
+      username,
       title,
       description,
       location,
       image,
       contact,
-      // user,
     });
 
     await newPost.save();
@@ -55,7 +55,6 @@ const getAllPosts = async (req, res) => {
 export const getPostById = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-
     if (!post) {
       return res.status(404).render("404", { error_msg: "Post not found" });
     }

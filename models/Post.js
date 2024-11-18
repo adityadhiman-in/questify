@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 // import User from "./User.js";
 
 const PostSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

@@ -4,6 +4,7 @@
     <div class="container my-5">
       <h1 class="text-center">Create a New Post</h1>
       <form action="/posts" method="POST" enctype="multipart/form-data">
+        <input type="text" name="username" placeholder="Owner Name" required />
         <input type="text" name="title" placeholder="Title" required />
         <textarea
           name="description"
@@ -11,7 +12,7 @@
           required
         ></textarea>
         <input type="text" name="location" placeholder="Location" required />
-        <input type="file" name="ima ge" accept="image/*" required />
+        <input type="file" name="image" accept="image/*" required />
         <input
           type="text"
           name="contact"

@@ -5,7 +5,7 @@
   <div class="itemsContainer">
     <% if (posts && posts.length) { %> <% posts.forEach(post => { %>
     <div class="card item">
-      <h3>@<%= user.username %></h3>
+      <h3>@<%= post.username %></h3>
       <img
         src="<%= post.image %>"
         class="card-img-top"

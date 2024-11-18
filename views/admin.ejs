@@ -1,6 +1,36 @@
 <%- include("partials/header.ejs") %>
-<div class="container">
-  <div class="nav">Hello Admin!</div>
+<style>
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .statsItem {
+    background-color: var(--primaryColor);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .statsItemTitle,
+  .statsItemValue {
+    color: var(--whiteColor);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .statsItemValue {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  .adminContainer h2 {
+    margin-top: 4rem;
+  }
+</style>
+<div class="container adminContainer">
+  <div class="nav"><h1>Hello Admin!</h1></div>
   <div class="stats">
     <div class="statsItem">
       <div class="statsItemTitle">Total Users</div>
@@ -11,5 +41,6 @@
       <div class="statsItemValue">50</div>
     </div>
   </div>
+  <h2>More Stats To Come In Future Updates!</h2>
 </div>
 <%- include("partials/loggedInFooter.ejs") %>

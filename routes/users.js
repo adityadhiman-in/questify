@@ -3,7 +3,7 @@ import passport from "passport";
 import User from "../models/User.js";
 import Post from "../models/Post.js";
 import bcrypt from "bcryptjs";
-import { ensureAuthenticated } from "../middleware/auth.js"; // Import middleware to protect routes
+import { ensureAuthenticated, ensureAdmin } from "../middleware/auth.js"; // Import middleware to protect routes
 
 const router = express.Router();
 
@@ -170,14 +170,6 @@ router.get("/rewards", ensureAuthenticated, (req, res) => {
   res.render("rewards");
 });
 
-export function ensureAdmin(req, res, next) {
-  if (req.isAuthenticated() && req.user.isAdmin) {
-    return next();
-  }
-  req.flash("error_msg", "Access denied. Admins only.");
-  res.redirect("/"); // Redirect to home page or any other route you choose
-}
-
 // @route   GET /admin
 // @desc    Admin page - accessible only by admin users
 router.get("/admin", ensureAuthenticated, ensureAdmin, (req, res) => {
@@ -185,3 +177,26 @@ router.get("/admin", ensureAuthenticated, ensureAdmin, (req, res) => {
 });
 
 export default router;
+
+router.get("/admin/login", (req, res) => {
+  res.render("adminLogin", { user: req.user });
+});
+
+router.post(
+  "/admin/login",
+  ensureAuthenticated,
+  ensureAdmin,
+  (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/users/admin",
+      failureRedirect: "/users/admin/login",
+      failureFlash: true,
+    })(req, res, next);
+  }
+);
+
+router.get("/admin/logout", (req, res) => {
+  req.logout();
+  req.flash("success_msg", "You have logged out");
+  res.redirect("/admin/login");
+});

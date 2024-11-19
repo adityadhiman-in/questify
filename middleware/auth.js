@@ -9,9 +9,10 @@ export const ensureAuthenticated = (req, res, next) => {
 };
 
 export function ensureAdmin(req, res, next) {
+  console.log("User in ensureAdmin:", req.user); // Debug user object
   if (req.isAuthenticated() && req.user.isAdmin) {
     return next();
   }
   req.flash("error_msg", "Access denied. Admins only.");
-  res.redirect("/"); // Redirect to home page or any other route you choose
+  res.redirect("/");
 }

@@ -2,12 +2,12 @@
 
 <div class="container">
   <h2>Admin Login</h2>
-  <form action="/users/admin/login" method="post" class="adminLoginForm">
+  <form action="/users/admin/login" method="POST" class="adminLoginForm">
     <label for="adminName">Email</label>
     <input type="email" id="adminName" required />
     <label for="adminPassword">Password</label>
     <input type="password" id="adminPassword" required />
-    <input type="submit" class="s" />
+    <input type="submit" value="Login" class="s" />
   </form>
 </div>
 <%-include("partials/footer.ejs") %>

@@ -182,18 +182,13 @@ router.get("/admin/login", (req, res) => {
   res.render("adminLogin", { user: req.user });
 });
 
-router.post(
-  "/admin/login",
-  ensureAuthenticated,
-  ensureAdmin,
-  (req, res, next) => {
-    passport.authenticate("local", {
-      successRedirect: "/users/admin",
-      failureRedirect: "/users/admin/login",
-      failureFlash: true,
-    })(req, res, next);
-  }
-);
+router.post("/admin/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/users/admin", // Redirect to admin panel on success
+    failureRedirect: "/users/admin/login", // Back to admin login on failure
+    failureFlash: true,
+  })(req, res, next);
+});
 
 router.get("/admin/logout", (req, res) => {
   req.logout();

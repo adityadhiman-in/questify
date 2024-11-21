@@ -22,6 +22,7 @@ Questify is built using the:
 - **Express.js**: As the backend framework.
 - **Ejs**: For building dynamic and responsive frontend.
 - **Node.js**: Server-side JavaScript runtime.
+- **CSS** : Custom CSS styles.
 
 ## Future Updates Coming
 

@@ -184,8 +184,8 @@ router.get("/admin/login", (req, res) => {
 
 router.post("/admin/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/users/admin", // Redirect to admin panel on success
-    failureRedirect: "/users/admin/login", // Back to admin login on failure
+    successRedirect: "/users/admin",
+    failureRedirect: "/users/admin/login",
     failureFlash: true,
   })(req, res, next);
 });

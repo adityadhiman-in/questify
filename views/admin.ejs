@@ -30,15 +30,15 @@
   }
 </style>
 <div class="container adminContainer">
-  <div class="nav"><h1>Hello Admin!</h1></div>
+  <div class="nav"><h1>Hello Admin, <%= user.name %>!</h1></div>
   <div class="stats">
     <div class="statsItem">
       <div class="statsItemTitle">Total Users</div>
-      <div class="statsItemValue">100</div>
+      <div class="statsItemValue"><%= stats.totalUsers %></div>
     </div>
     <div class="statsItem">
       <div class="statsItemTitle">Total Posts</div>
-      <div class="statsItemValue">50</div>
+      <div class="statsItemValue"><%= stats.totalPosts %></div>
     </div>
   </div>
   <h2>More Stats To Come In Future Updates!</h2>

@@ -172,8 +172,25 @@ router.get("/rewards", ensureAuthenticated, (req, res) => {
 
 // @route   GET /admin
 // @desc    Admin page - accessible only by admin users
-router.get("/admin", ensureAuthenticated, ensureAdmin, (req, res) => {
-  res.render("admin", { user: req.user });
+
+router.get("/admin", ensureAuthenticated, ensureAdmin, async (req, res) => {
+  try {
+    // Fetch total users and total posts from the database
+    const totalUsers = await User.countDocuments(); // Counts all users
+    const totalPosts = await Post.countDocuments(); // Counts all posts
+
+    // Render the admin page with the fetched data
+    res.render("admin", {
+      user: req.user,
+      stats: {
+        totalUsers,
+        totalPosts,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching stats for admin page:", error);
+    res.status(500).send("Server Error");
+  }
 });
 
 export default router;

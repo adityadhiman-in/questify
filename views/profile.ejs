@@ -18,12 +18,12 @@
       </div>
     </div>
   </section>
-  <!-- 
+
+  <!-- Section to display the user's posts -->
   <section class="user-posts-section">
     <h3>Your Posts</h3>
-    <% console.log(posts); %>
     <div class="posts-container">
-      <% if(posts.length > 0) { %> <% posts.forEach(post => { %>
+      <% if (posts.length > 0) { %> <% posts.forEach(post => { %>
       <div class="post-card">
         <h4><%= post.title %></h4>
         <p><%= post.body %></p>
@@ -35,7 +35,7 @@
       <p>You haven't created any posts yet.</p>
       <% } %>
     </div>
-  </section> -->
+  </section>
 </main>
 
 <%- include("partials/loggedInFooter.ejs") %>

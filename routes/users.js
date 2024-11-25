@@ -63,7 +63,10 @@ router.post("/signup", async (req, res) => {
 // Profile page, protected route
 router.get("/profile", ensureAuthenticated, async (req, res) => {
   try {
+    // Fetch all posts created by the logged-in user
     const posts = await Post.find({ user: req.user.id }).sort({ date: -1 });
+
+    // Render the profile page and pass the user's posts and details
     res.render("profile", { posts, user: req.user });
   } catch (error) {
     console.error(error);

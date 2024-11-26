@@ -7,6 +7,7 @@ import methodOverride from "method-override";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import User from "./models/User.js";
 dotenv.config();
 
 // Import Routes
@@ -73,9 +74,14 @@ app.use("/users", userRoutes);
 app.use("/posts", ensureAuthenticated, postRoutes);
 
 // Home route - Protected
-app.get("/", ensureAuthenticated, (req, res) =>
-  res.render("home", { posts: [] })
-);
+app.get("/", ensureAuthenticated, async (req, res) => {
+  let admin = false;
+  let user = await User.findById(req.user.id);
+  if (user.isAdmin) {
+    admin = true;
+  }
+  res.render("home", { posts: [] });
+});
 
 // Server configuration
 const PORT = process.env.PORT || 5000;

@@ -181,7 +181,11 @@ router.get("/admin", ensureAuthenticated, ensureAdmin, async (req, res) => {
     // Fetch total users and total posts from the database
     const totalUsers = await User.countDocuments(); // Counts all users
     const totalPosts = await Post.countDocuments(); // Counts all posts
-
+    let admin = false;
+    let user = await User.findById(req.user.id);
+    if (user.isAdmin) {
+      admin = true;
+    }
     // Render the admin page with the fetched data
     res.render("admin", {
       user: req.user,
@@ -189,6 +193,7 @@ router.get("/admin", ensureAuthenticated, ensureAdmin, async (req, res) => {
         totalUsers,
         totalPosts,
       },
+      admin,
     });
   } catch (error) {
     console.error("Error fetching stats for admin page:", error);
@@ -197,21 +202,3 @@ router.get("/admin", ensureAuthenticated, ensureAdmin, async (req, res) => {
 });
 
 export default router;
-
-router.get("/admin/login", (req, res) => {
-  res.render("adminLogin", { user: req.user });
-});
-
-router.post("/admin/login", (req, res, next) => {
-  passport.authenticate("local", {
-    successRedirect: "/users/admin",
-    failureRedirect: "/users/admin/login",
-    failureFlash: true,
-  })(req, res, next);
-});
-
-router.get("/admin/logout", (req, res) => {
-  req.logout();
-  req.flash("success_msg", "You have logged out");
-  res.redirect("/admin/login");
-});

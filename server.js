@@ -80,7 +80,7 @@ app.get("/", ensureAuthenticated, async (req, res) => {
   if (user.isAdmin) {
     admin = true;
   }
-  res.render("home", { posts: [] });
+  res.render("home", { posts: [], admin });
 });
 
 // Server configuration

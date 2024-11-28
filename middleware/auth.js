@@ -9,7 +9,6 @@ export const ensureAuthenticated = (req, res, next) => {
 };
 
 export function ensureAdmin(req, res, next) {
-  console.log("User in ensureAdmin:", req.user); // Debug user object
   if (req.isAuthenticated() && req.user.isAdmin) {
     return next();
   }

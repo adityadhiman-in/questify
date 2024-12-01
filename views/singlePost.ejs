@@ -9,7 +9,7 @@
       <p class="card-text"><strong>Location:</strong> <%= post.location %></p>
       <p class="card-text"><strong>Contact:</strong> <%= post.contact %></p>
       <div class="d-flex justify-content-between">
-        <button class="btn btn-primary" onclick="shareOnSocialMedia()">
+        <button class="btn btn-primary" onclick="showShareModal()">
           Share
         </button>
         <button>
@@ -22,28 +22,81 @@
   </div>
 </div>
 
+<!-- Modal for Social Media Sharing -->
+<div id="shareModal" class="modal" style="display: none">
+  <div class="modal-content">
+    <h3>Share this post on:</h3>
+    <button class="btn btn-success m-2" onclick="shareOnPlatform('whatsapp')">
+      WhatsApp
+    </button>
+    <button class="btn btn-info m-2" onclick="shareOnPlatform('twitter')">
+      Twitter
+    </button>
+    <button class="btn btn-danger m-2" onclick="shareOnPlatform('instagram')">
+      Instagram
+    </button>
+    <button class="btn btn-secondary m-2" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<style>
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  .modal-content button {
+    margin: 5px;
+  }
+</style>
+
 <script>
-  function shareOnSocialMedia() {
+  function showShareModal() {
+    document.getElementById("shareModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("shareModal").style.display = "none";
+  }
+
+  function shareOnPlatform(platform) {
     const postUrl = window.location.href;
     const postTitle = document.querySelector(".card-title").innerText;
 
-    // WhatsApp
-    const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(
-      postTitle + " " + postUrl
-    )}`;
-    // Twitter
-    const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      postUrl
-    )}&text=${encodeURIComponent(postTitle)}`;
-    // Instagram (Direct sharing to Instagram is not supported, but you can suggest to share via the app)
-    const instagramShareUrl = `https://www.instagram.com/?url=${encodeURIComponent(
-      postUrl
-    )}`;
+    let shareUrl = "";
+    if (platform === "whatsapp") {
+      shareUrl = `https://wa.me/?text=${encodeURIComponent(
+        postTitle + " " + postUrl
+      )}`;
+    } else if (platform === "twitter") {
+      shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        postUrl
+      )}&text=${encodeURIComponent(postTitle)}`;
+    } else if (platform === "instagram") {
+      shareUrl = `https://www.instagram.com/?url=${encodeURIComponent(
+        postUrl
+      )}`;
+    }
 
-    // Open share options in a new window
-    window.open(whatsappShareUrl, "_blank");
-    window.open(twitterShareUrl, "_blank");
-    window.open(instagramShareUrl, "_blank");
+    if (shareUrl) {
+      window.open(shareUrl, "_blank");
+    }
+
+    closeModal();
   }
 </script>
 

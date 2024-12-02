@@ -18,24 +18,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Section to display the user's posts -->
-  <section class="user-posts-section">
-    <h3>Your Posts</h3>
-    <div class="posts-container">
-      <% if (posts.length > 0) { %> <% posts.forEach(post => { %>
-      <div class="post-card">
-        <h4><%= post.title %></h4>
-        <p><%= post.body %></p>
-        <form action="/posts/<%= post._id %>/delete" method="POST">
-          <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-      </div>
-      <% }) %> <% } else { %>
-      <p>You haven't created any posts yet.</p>
-      <% } %>
-    </div>
-  </section>
 </main>
 
 <%- include("partials/loggedInFooter.ejs") %>

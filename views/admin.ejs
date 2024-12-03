@@ -28,6 +28,24 @@
   .adminContainer h2 {
     margin-top: 4rem;
   }
+  .userList {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+  }
+  .userCard {
+    background-color: var(--primaryColor);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .userCard p {
+    margin: 0.5rem 0 0;
+    color: var(--whiteColor);
+  }
 </style>
 <div style="text-align: right; margin-right: 2.5rem" class="adminPanel">
   <li>
@@ -55,6 +73,16 @@
       <div class="statsItemValue"><%= stats.totalPosts %></div>
     </div>
   </div>
-  <h2>More Stats To Come soon In Future Updates!</h2>
+  <h2>All Users</h2>
+  <div class="userList">
+    <% users.forEach(user => { %>
+    <div class="userCard">
+      <h3><%= user.name %></h3>
+      <p>Email: <%= user.email %></p>
+      <p>Role: <%= user.isAdmin ? "Admin" : "User" %></p>
+    </div>
+    <% }) %>
+  </div>
+  <h2>More Stats To Come Soon In Future Updates!</h2>
 </div>
 <%- include("partials/loggedInFooter.ejs") %>

@@ -46,6 +46,34 @@
     margin: 0.5rem 0 0;
     color: var(--whiteColor);
   }
+  @media (max-width: 768px) {
+    .stats {
+      padding-top: 2rem;
+      gap: 1rem;
+    }
+    .userList {
+      grid-template-columns: 1fr;
+    }
+    .statsItem {
+      background-color: var(--primaryColor);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    li a {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.75rem;
+    }
+    .adminContainer {
+      text-align: center;
+    }
+    .statsItemTitle,
+    .statsItemValue {
+      font-size: 1rem;
+    }
+  }
 </style>
 <div style="text-align: right; margin-right: 2.5rem" class="adminPanel">
   <li>
@@ -83,6 +111,8 @@
     </div>
     <% }) %>
   </div>
-  <h2>More Stats To Come Soon In Future Updates!</h2>
+  <h3 style="color: var(--primaryColor); padding-top: 1rem">
+    More Stats To Come Soon In Future Updates!
+  </h3>
 </div>
 <%- include("partials/loggedInFooter.ejs") %>

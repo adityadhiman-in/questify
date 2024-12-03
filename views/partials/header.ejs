@@ -9,6 +9,99 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <style>
+      :root {
+        --primaryColor: #2a2f4f;
+        --whiteColor: #fff;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primaryColor);
+        color: var(--whiteColor);
+        padding: 1rem 2rem;
+        position: relative;
+      }
+
+      .logo h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .logo a {
+        text-decoration: none;
+        color: var(--whiteColor);
+      }
+
+      .nav ul,
+      .navII ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav a,
+      .navII a {
+        text-decoration: none;
+        color: var(--whiteColor);
+        padding: 0.5rem 1rem;
+      }
+
+      .menu-icon {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--whiteColor);
+      }
+
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }
+
+        .nav,
+        .navII {
+          display: none; /* Hidden by default */
+          flex-direction: column;
+          background-color: var(--primaryColor);
+          position: absolute;
+          top: 100%; /* Below the header */
+          left: 0;
+          width: 100%;
+          padding: 1rem 0;
+          z-index: 10;
+        }
+
+        .nav.show,
+        .navII.show {
+          display: flex; /* Show when toggled */
+        }
+
+        .nav ul,
+        .navII ul {
+          flex-direction: column;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        .nav a,
+        .navII a {
+          font-size: 1.25rem;
+          padding: 0.5rem 1rem;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -26,7 +119,6 @@
           <li><a href="/users/about">About</a></li>
         </ul>
       </nav>
-
       <nav class="navII">
         <ul>
           <% if (loggedIn) { %>
@@ -38,15 +130,12 @@
           <% } %>
         </ul>
       </nav>
-      <!-- <div class="menuIcons">
-        <i class="ri-menu-2-line"></i>
-      </div> -->
+      <i class="ri-menu-2-line menu-icon"></i>
     </header>
-
     <script>
       const nav = document.querySelector(".nav");
       const navII = document.querySelector(".navII");
-      const menuIcon = document.querySelector(".ri-menu-2-line");
+      const menuIcon = document.querySelector(".menu-icon");
 
       menuIcon.addEventListener("click", () => {
         nav.classList.toggle("show");

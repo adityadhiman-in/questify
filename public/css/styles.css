@@ -165,6 +165,7 @@ form button:hover {
   margin: 1rem;
 }
 
+
 .profile-section {
   background-color: #fff;
   padding: 20px;
@@ -236,7 +237,10 @@ form button:hover {
 
 /* Lost and Found Items */
  
-
+.exploreContainer h2{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
 .post {
   background-color: var(--whiteColor);
   border-radius: .5rem;

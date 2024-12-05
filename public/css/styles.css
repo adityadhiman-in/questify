@@ -455,3 +455,7 @@ footer p {
 
 
 /* Responsiveness code */
+form{
+  min-width: 330px;
+  flex-wrap: wrap;
+}

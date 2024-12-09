@@ -74,7 +74,10 @@ app.use("/users", userRoutes);
 app.use("/posts", ensureAuthenticated, postRoutes);
 
 // Home route - Protected
-app.get("/", ensureAuthenticated, async (req, res) => {
+app.get("/", (req, res) => {
+  res.render("landing");
+});
+app.get("/home", ensureAuthenticated, async (req, res) => {
   let admin = false;
   let user = await User.findById(req.user.id);
   if (user.isAdmin) {

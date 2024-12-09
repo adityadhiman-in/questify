@@ -112,8 +112,11 @@
       </div>
       <nav class="nav">
         <ul>
+          <% if(loggedIn){ %>
+          <li><a href="/home">Home</a></li>
+          <% }else{ %>
           <li><a href="/">Home</a></li>
-          <% if(loggedIn) { %>
+          <% } %> <% if(loggedIn) { %>
           <li><a href="/users/explore">Explore</a></li>
           <% } %>
           <li><a href="/users/about">About</a></li>
